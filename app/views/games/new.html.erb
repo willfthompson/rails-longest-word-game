@@ -1,0 +1,15 @@
+<div class="random-letters">
+  <% @letters.each do |letter| %>
+  <h1 id=letters><%= letter.upcase  %></h1>
+  <% end %>
+</div>
+<div class="form">
+  <br>
+  <form action="/score">
+    <label for="user-word">What's the longest word you can find?</label><br>
+    <input type="text" id="user-word" name="user-word" placeholder="Type here"><br>
+    <input type="submit" value="Submit">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+  </form>
+</div>
